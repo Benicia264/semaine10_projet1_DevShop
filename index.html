@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevShop - Boutique en ligne</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- EN-TÊTE / NAVBAR -->
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1><i class="fa-solid fa-store"></i> DevShop</h1>
+      </div>
+      
+      <!-- Barre de recherche -->
+      <div class="recherche-conteneur">
+        <input type="text" id="barre-recherche" placeholder="Rechercher un produit...">
+      </div>
+
+      <!-- Bouton Panier -->
+      <button id="btn-panier" class="btn-panier-nav">
+        <i class="fa-solid fa-cart-shopping"></i> Panier
+        <span id="count-panier">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container">
+    <!-- Filtres par catégories et Tri par prix -->
+    <section class="section-filtres">
+      <div id="filtres-categories"></div>
+      
+      <div class="tri-conteneur">
+        <label for="select-tri"><i class="fa-solid fa-sort"></i> Trier par :</label>
+        <select id="select-tri">
+          <option value="defaut">Par défaut</option>
+          <option value="prix-croissant">Prix : Du moins cher au plus cher</option>
+          <option value="prix-decroissant">Prix : Du plus cher au moins cher</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Zone d'erreur -->
+    <div id="message-erreur"></div>
+
+    <!-- Loader de chargement -->
+    <div id="loader" class="loader-container">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Grille où s'affichent les produits -->
+    <div id="grille-produits"></div>
+  </main>
+
+  <!-- TIROIR PANIER (OFF-CANVAS) -->
+  <div id="tiroir-panier">
+    <div class="entete-panier">
+      <h2><i class="fa-solid fa-basket-shopping"></i> Mon Panier</h2>
+      <button id="btn-fermer-panier" class="btn-fermer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div id="contenu-panier"></div>
+    
+    <div class="pied-panier">
+      <div class="total-conteneur">
+        <span>Total :</span>
+        <span id="total-prix">0.00 €</span>
+      </div>
+      <button class="btn-commander">Commander</button>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST (CONFIRMATION D'AJOUT) -->
+  <div id="toast-notification" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
